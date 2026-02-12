@@ -1,0 +1,37 @@
+<section class="products">
+  <h2>{{ section.settings.title }}</h2>
+  <div class="product-grid">
+    {% for product in collections[section.settings.collection].products %}
+      <div class="product">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+          <div class="name">{{ product.title }}</div>
+          <div class="price">{{ product.price | money }}</div>
+        </a>
+        <form action="/cart/add" method="post">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <button class="add-cart">Aggiungi al carrello</button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Prodotti in evidenza",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titolo Sezione",
+      "default": "Novità"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collezione"
+    }
+  ]
+}
+{% endschema %}
