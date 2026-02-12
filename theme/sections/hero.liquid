@@ -1,0 +1,31 @@
+<section class="hero">
+  {% if section.settings.hero_image %}
+    <img src="{{ section.settings.hero_image | image_url: 'master' }}" alt="Hero">
+  {% endif %}
+  <a href="{{ section.settings.cta_link }}" class="cta">{{ section.settings.cta_text }}</a>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Immagine Hero"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Testo Pulsante",
+      "default": "Scopri la collezione"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link Pulsante",
+      "default": "/collections/all"
+    }
+  ]
+}
+{% endschema %}
